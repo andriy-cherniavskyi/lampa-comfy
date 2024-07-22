@@ -1,11 +1,15 @@
+import Header from './components/common/Header';
+import ProductLayout from './components/layouts/ProductLayout';
+import Products from './features/products/Products';
 import React from 'react';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        Lampa Comfy App
-      </header>
+      <Header />
+      <ProductLayout>
+        <Products />
+      </ProductLayout>
     </div>
   );
 }
