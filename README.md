@@ -47,4 +47,4 @@ The application consists of two main pages: `/products` and `/cart`.
 1. Clone the repository:
    ```bash
    git clone https://github.com/andriy-cherniavskyi/lampa-comfy.git
-   cd lampa-software-test-task
+   cd lampa-comfy
