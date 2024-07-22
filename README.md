@@ -48,3 +48,30 @@ The application consists of two main pages: `/products` and `/cart`.
    ```bash
    git clone https://github.com/andriy-cherniavskyi/lampa-comfy.git
    cd lampa-comfy
+2. Install dependencies:
+
+    ```npm install```
+
+3. Set up Firebase or the chosen API for fetching products and saving orders. Add the necessary configuration to the .env file.
+
+4. Start the development server:
+    ```npm start```
+
+## Usage
+- /products: Browse and filter products. Add products to the cart.
+- /cart: View and manage products in the cart. Place an order using the order form.
+
+## Technologies Used
+- React 18
+- Redux
+- TypeScript
+- react-hook-form
+- yup
+- Dummy JSON API
+
+## License
+This project is licensed under the MIT License.
+
+```
+This README file provides a clear and detailed description of the app, its requirements, technical stack, installation steps and usage. Adjust the URLs and paths as necessary for your project.
+```
