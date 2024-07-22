@@ -1,16 +1,37 @@
 import Header from './components/common/Header';
-import ProductLayout from './components/layouts/ProductLayout';
+import CartLayout from './components/layouts/CartLayout';
+import ProductsLayout from './components/layouts/ProductsLayout';
+import Cart from './features/cart/Cart';
 import Products from './features/products/Products';
+import { SnackbarProvider } from 'notistack';
 import React from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <ProductLayout>
-        <Products />
-      </ProductLayout>
-    </div>
+    <SnackbarProvider>
+      <Router>
+        <Header />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <ProductsLayout>
+                <Products />
+              </ProductsLayout>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <CartLayout>
+                <Cart />
+              </CartLayout>
+            }
+          />
+        </Routes>
+      </Router>
+    </SnackbarProvider>
   );
 }
 

@@ -1,7 +1,8 @@
-import { addItemToCart } from '../../../features/cart/cartSlice';
-import { Product } from '../../../features/products/productSlice';
-import { useAppDispatch } from '../../../hooks/useAppDispatch';
-import Image from '../Image';
+import { addItemToCart } from '../../features/cart/cartSlice';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
+import { useAppSelector } from '../../hooks/useAppSelector';
+import Image from '../common/Image';
+import QuantityModifier from '../common/QuantityModifier';
 import { TProductCardProps } from './types';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import { Button } from '@mui/material';
@@ -12,8 +13,11 @@ import React, { FC, memo } from 'react';
 const ProductCard: FC<TProductCardProps> = memo(({ product }) => {
   const { title, description, price, thumbnail } = product;
   const dispatch = useAppDispatch();
+  const cartItems = useAppSelector(state => state.cart.items);
 
-  const handleAddToCart = (product: Product) => {
+  const currentSelectedItem = cartItems.find(item => item.id === product.id);
+
+  const handleAddToCart = () => {
     const cartItem = { ...product, quantity: 1 };
     dispatch(addItemToCart(cartItem));
   };
@@ -53,21 +57,28 @@ const ProductCard: FC<TProductCardProps> = memo(({ product }) => {
           >
             {price} $
           </Typography>
-          <Button
-            variant="text"
-            sx={{
-              padding: 0,
-              color: '#808080',
-              ':hover': {
-                background: 'none',
-                opacity: 0.6,
-              },
-            }}
-            onClick={product => handleAddToCart}
-            startIcon={<ShoppingBagIcon color="inherit" />}
-          >
-            <Typography component="span">Add to cart</Typography>
-          </Button>
+          {currentSelectedItem ? (
+            <QuantityModifier
+              id={product.id}
+              quantity={currentSelectedItem.quantity}
+            />
+          ) : (
+            <Button
+              variant="text"
+              sx={{
+                padding: 0,
+                color: '#808080',
+                ':hover': {
+                  background: 'none',
+                  opacity: 0.6,
+                },
+              }}
+              onClick={handleAddToCart}
+              startIcon={<ShoppingBagIcon color="inherit" />}
+            >
+              <Typography component="span">Add to cart</Typography>
+            </Button>
+          )}
         </Box>
       </Box>
     </Box>

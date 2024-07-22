@@ -7,7 +7,6 @@ export interface Product {
   description: string;
   price: number;
   thumbnail: string;
-  currency?: string;
 }
 
 interface ProductState {

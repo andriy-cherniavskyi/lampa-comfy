@@ -9,6 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import React, { FC, memo } from 'react';
+import { Link } from 'react-router-dom';
 
 const Header: FC = memo(() => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -22,29 +23,36 @@ const Header: FC = memo(() => {
   };
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
+    <AppBar position="sticky">
+      <Container
+        sx={{
+          background: 'linear-gradient(180deg, rgba(69,73,108,1) 0%, rgba(22,26,65,1) 72%)',
+        }}
+        maxWidth="xl"
+      >
         <Toolbar
           disableGutters
           sx={{ display: 'flex', justifyContent: 'space-between' }}
         >
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/products"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            Lampa
-          </Typography>
+          <Link to="/">
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              href="/"
+              sx={{
+                mr: 2,
+                display: { xs: 'none', md: 'flex' },
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: '#fff',
+                textDecoration: 'none',
+              }}
+            >
+              Lampa
+            </Typography>
+          </Link>
 
           <Box sx={{ display: 'flex', flexGrow: 0, alignItems: 'center' }}>
             <ShoppingCartIcon />

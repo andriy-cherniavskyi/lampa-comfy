@@ -1,48 +1,43 @@
 import { RootState } from '../../app/store';
-import { decreaseItemQuantity, increaseItemQuantity, removeItemFromCart } from './cartSlice';
+import CartForm from '../../components/CartForm';
+import CartProductCard from '../../components/CartProductCard';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import React, { FC } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const Cart: FC = () => {
-  const dispatch = useDispatch();
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const totalAmount = useSelector((state: RootState) => state.cart.totalAmount);
 
-  const handleRemove = (id: number) => {
-    dispatch(removeItemFromCart(id));
-  };
-
-  const handleIncrease = (id: number) => {
-    dispatch(increaseItemQuantity(id));
-  };
-
-  const handleDecrease = (id: number) => {
-    dispatch(decreaseItemQuantity(id));
-  };
-
   return (
-    <div>
-      <h1>Cart</h1>
+    <Box>
       {cartItems.length === 0 ? (
-        <p>Your cart is empty</p>
+        <Typography sx={{ textAlign: 'center', color: '#808080' }}>Your cart is empty</Typography>
       ) : (
-        <div>
-          {cartItems.map(item => (
-            <div key={item.id}>
-              <h2>{item.title}</h2>
-              <p>{item.description}</p>
-              <p>
-                {item.price} x {item.quantity} = {item.price * item.quantity}
-              </p>
-              <button onClick={() => handleIncrease(item.id)}>+</button>
-              <button onClick={() => handleDecrease(item.id)}>-</button>
-              <button onClick={() => handleRemove(item.id)}>Remove</button>
-            </div>
-          ))}
-          <h2>Total: {totalAmount}</h2>
-        </div>
+        <Box sx={{ display: 'flex' }}>
+          <Box sx={{ marginRight: '24px', maxHeight: '70vh', overflow: 'hidden', overflowY: 'scroll' }}>
+            {cartItems.map(item => (
+              <CartProductCard
+                title={item.title}
+                quantity={item.quantity}
+                description={item.description}
+                id={item.id}
+                image={item.thumbnail}
+                price={item.price}
+              />
+            ))}
+          </Box>
+          <CartForm />
+        </Box>
       )}
-    </div>
+      <Typography
+        component="h2"
+        sx={{ textDecoration: 'underline', fontWeight: 700, marginTop: '48px', fontSize: '20px' }}
+      >
+        Total: {totalAmount.toFixed(2)} $
+      </Typography>
+    </Box>
   );
 };
 
