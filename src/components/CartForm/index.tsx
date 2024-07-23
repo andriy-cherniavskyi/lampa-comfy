@@ -21,7 +21,8 @@ const CartForm: FC = memo(() => {
     resolver: yupResolver(cartSchema),
   });
 
-  const handleCompleteOrder = () => {
+  const handleCompleteOrder = (data: any) => {
+    console.log(isValid);
     return enqueueSnackbar('Your order is completed', {
       variant: 'success',
       autoHideDuration: 3000,

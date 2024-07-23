@@ -1,15 +1,19 @@
 import * as Yup from 'yup';
 
+const phoneRegex = /^\+?(\d{1,3})?[-.\s]?(\(?\d{1,4}\)?)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
+
 export const cartSchema: Yup.AnyObjectSchema = Yup.object().shape(
   {
-    name: Yup.string().max(50, 'Name should be 50 characters or less.'),
-    surname: Yup.string().max(50, 'Surname should be 50 characters or less.'),
-    address: Yup.string().max(100, 'Address should be 100 characters or less.'),
-    phone: Yup.string().when('phone', {
-      is: (val: string) => val?.length > 0,
-      then: schema => schema.min(6, 'The phone number should be at least 6 numbers long.').required(),
-      otherwise: schema => schema.notRequired(),
-    }),
+    name: Yup.string().max(50, 'Name should be 50 characters or less.').required(),
+    surname: Yup.string().max(50, 'Surname should be 50 characters or less.').required(),
+    address: Yup.string().max(100, 'Address should be 100 characters or less.').required(),
+    phone: Yup.string()
+      .when('phone', {
+        is: (val: string) => val?.length > 0,
+        then: schema => schema.min(6, 'The phone number should be at least 6 numbers long.').required(),
+        otherwise: schema => schema.notRequired(),
+      })
+      .matches(phoneRegex),
   },
   [['phone', 'phone']],
 );

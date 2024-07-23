@@ -14,23 +14,40 @@ export type TCartInputProps = TControllerRenderProps &
 
 // @ts-ignore
 const CartFormField: FC<TCartInputProps> = memo(props => {
-  const { value, onChange, label, disabled, error, helperText, type, ...rest } = props;
+  const { value, onChange, label, disabled, error, helperText, type, ref, ...rest } = props;
+
+  const handleChange = (value: string) => {
+    if (onChange) {
+      onChange(value);
+    }
+  };
 
   switch (type) {
     case 'phone':
       return (
         <MuiTelInput
-          value={value as string}
+          {...rest}
+          value={value ?? ''}
+          inputRef={ref}
           defaultCountry="UA"
+          helperText={error ? 'Phone number is invalid' : ''}
+          error={error}
+          onChange={handleChange}
+          onBlur={rest.onBlur}
         />
       );
     case 'text':
       return (
         <TextField
+          key={label}
           label={label}
           variant="outlined"
           value={value}
           sx={{ marginBottom: '12px' }}
+          onChange={event => handleChange(event.target.value)}
+          onBlur={rest.onBlur}
+          error={error}
+          helperText={error ? 'Field is required' : ''}
         />
       );
   }
