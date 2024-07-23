@@ -7,9 +7,9 @@ This project is a test task for the Lampa Software team. The goal is to develop 
 
 ## Product Requirements
 
-The application consists of two main pages: `/products` and `/cart`.
+The application consists of two main pages: `/` and `/cart`.
 
-### /products
+### /
 
 - **Header**: Includes a logo and a button to navigate to the cart page.
 - **Product Filters**: Allows users to filter products.
@@ -64,7 +64,7 @@ The application consists of two main pages: `/products` and `/cart`.
 
 ## Usage
 
-- /products: Browse and filter products. Add products to the cart.
+- /: Browse and filter products. Add products to the cart.
 - /cart: View and manage products in the cart. Place an order using the order form.
 
 ## Technologies Used
