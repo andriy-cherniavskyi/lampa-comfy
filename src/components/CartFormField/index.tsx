@@ -1,6 +1,6 @@
 import { TextField, TextFieldProps } from '@mui/material';
 import { MuiTelInput } from 'mui-tel-input';
-import { FC, memo } from 'react';
+import { forwardRef } from 'react';
 import { ChangeHandler, ControllerRenderProps } from 'react-hook-form';
 
 type TControllerRenderProps = ControllerRenderProps<Record<string, string | null>>;
@@ -13,8 +13,8 @@ export type TCartInputProps = TControllerRenderProps &
   };
 
 // @ts-ignore
-const CartFormField: FC<TCartInputProps> = memo(props => {
-  const { value, onChange, label, disabled, error, helperText, type, ref, ...rest } = props;
+const CartFormField = forwardRef<any, TCartInputProps>((props, ref) => {
+  const { value, onChange, label, disabled, error, helperText, type, ...rest } = props;
 
   const handleChange = (value: string) => {
     if (onChange) {
@@ -27,8 +27,9 @@ const CartFormField: FC<TCartInputProps> = memo(props => {
       return (
         <MuiTelInput
           {...rest}
+          ref={ref}
           value={value ?? ''}
-          inputRef={ref}
+          onlyCountries={['UA']}
           defaultCountry="UA"
           helperText={error ? 'Phone number is invalid' : ''}
           error={error}
@@ -39,10 +40,11 @@ const CartFormField: FC<TCartInputProps> = memo(props => {
     case 'text':
       return (
         <TextField
+          ref={ref}
           key={label}
           label={label}
           variant="outlined"
-          value={value}
+          value={value ?? ''}
           sx={{ marginBottom: '12px' }}
           onChange={event => handleChange(event.target.value)}
           onBlur={rest.onBlur}

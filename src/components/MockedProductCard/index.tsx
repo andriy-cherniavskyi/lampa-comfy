@@ -4,7 +4,7 @@ import { FC, memo } from 'react';
 
 const MockedProductCard: FC = memo(() => {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: '320px' }}>
       <Skeleton
         variant="rectangular"
         height={180}

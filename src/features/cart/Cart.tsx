@@ -19,6 +19,7 @@ const Cart: FC = () => {
           <Box sx={{ marginRight: '24px', maxHeight: '70vh', overflow: 'hidden', overflowY: 'scroll' }}>
             {cartItems.map(item => (
               <CartProductCard
+                key={item.id}
                 title={item.title}
                 quantity={item.quantity}
                 description={item.description}
@@ -31,12 +32,14 @@ const Cart: FC = () => {
           <CartForm />
         </Box>
       )}
-      <Typography
-        component="h2"
-        sx={{ textDecoration: 'underline', fontWeight: 700, marginTop: '48px', fontSize: '20px' }}
-      >
-        Total: {totalAmount.toFixed(2)} $
-      </Typography>
+      {!!cartItems.length && (
+        <Typography
+          component="h2"
+          sx={{ textDecoration: 'underline', fontWeight: 700, marginTop: '48px', fontSize: '20px' }}
+        >
+          Total: {totalAmount.toFixed(2)} $
+        </Typography>
+      )}
     </Box>
   );
 };

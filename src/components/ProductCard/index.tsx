@@ -31,6 +31,8 @@ const ProductCard: FC<TProductCardProps> = memo(({ product }) => {
         borderRadius: '4px',
         alignItems: 'center',
         flex: '0 0 33.3333%',
+        maxHeight: '395px',
+        minWidth: '320px',
       }}
     >
       <Image
