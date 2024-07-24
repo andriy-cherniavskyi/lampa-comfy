@@ -1,6 +1,8 @@
 import Header from './components/common/Header';
 import CartLayout from './components/layouts/CartLayout';
-import ProductsLayout from './components/layouts/ProductsLayout';
+import MainLayout from './components/layouts/MainLayout';
+import Login from './features/auth/Login';
+import Signup from './features/auth/Signup';
 import Cart from './features/cart/Cart';
 import Products from './features/products/Products';
 import { enableMapSet } from 'immer';
@@ -19,9 +21,9 @@ function App() {
           <Route
             path="/"
             element={
-              <ProductsLayout>
+              <MainLayout>
                 <Products />
-              </ProductsLayout>
+              </MainLayout>
             }
           />
           <Route
@@ -30,6 +32,22 @@ function App() {
               <CartLayout>
                 <Cart />
               </CartLayout>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <MainLayout>
+                <Login />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <MainLayout>
+                <Signup />
+              </MainLayout>
             }
           />
         </Routes>

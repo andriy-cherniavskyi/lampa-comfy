@@ -66,6 +66,9 @@ The application consists of two main pages: `/` and `/cart`.
 
 - /: Browse and filter products. Add products to the cart.
 - /cart: View and manage products in the cart. Place an order using the order form.
+- /login: Login using any fake user data from `https://dummyjson.com/users`.
+- /signup: Create a new user. (Adding a new user will not add it into the server. It will simulate a POST
+  request and will return the new created user with a new id)
 
 ## Technologies Used
 

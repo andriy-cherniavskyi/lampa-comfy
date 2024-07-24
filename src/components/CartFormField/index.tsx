@@ -49,7 +49,7 @@ const CartFormField = forwardRef<any, TCartInputProps>((props, ref) => {
           onChange={event => handleChange(event.target.value)}
           onBlur={rest.onBlur}
           error={error}
-          helperText={error ? 'Field is required' : ''}
+          helperText={helperText ?? ''}
         />
       );
   }

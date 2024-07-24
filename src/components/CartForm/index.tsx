@@ -13,10 +13,12 @@ import { useSnackbar } from 'notistack';
 import { FC, memo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const CartForm: FC = memo(() => {
   const { enqueueSnackbar } = useSnackbar();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const { items, totalAmount } = useSelector((state: RootState) => state.cart); // Access cart items from the store
 
   const {
@@ -45,6 +47,7 @@ const CartForm: FC = memo(() => {
       reset();
       dispatch(clearCart());
       localStorage.removeItem('cartState');
+      navigate('/');
       return enqueueSnackbar('Your order is completed', {
         variant: 'success',
         autoHideDuration: 3000,
@@ -57,7 +60,6 @@ const CartForm: FC = memo(() => {
   return (
     <Box
       component="form"
-      data-testid="personal-details-form"
       onSubmit={handleSubmit(handleCompleteOrder)}
       sx={{ width: '480px' }}
     >
