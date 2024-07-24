@@ -1,4 +1,4 @@
-import { removeItemFromCart } from '../../features/cart/cartSlice';
+import { removeItemFromCart } from '../../app/cart/cartSlice';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import Image from '../common/Image';
 import QuantityModifier from '../common/QuantityModifier';

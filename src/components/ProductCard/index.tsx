@@ -1,4 +1,4 @@
-import { addItemToCart } from '../../features/cart/cartSlice';
+import { addItemToCart } from '../../app/cart/cartSlice';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import Image from '../common/Image';

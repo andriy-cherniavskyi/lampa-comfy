@@ -1,4 +1,4 @@
-import { TLayoutProps } from '../../../types';
+import { TLayoutProps } from '../../types';
 import Container from '@mui/material/Container';
 import { FC, memo } from 'react';
 

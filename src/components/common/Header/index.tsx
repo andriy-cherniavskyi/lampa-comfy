@@ -1,4 +1,4 @@
-import { logout, selectIsAuthenticated } from '../../../features/auth/authSlice';
+import { logout, selectIsAuthenticated } from '../../../app/auth/authSlice';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
 import ShoppingCartIcon from '../../ShoppingCartIcon';
 import AccountCircle from '@mui/icons-material/AccountCircle';

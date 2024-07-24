@@ -1,9 +1,9 @@
+import { fetchProducts } from '../../app/products/productSlice';
 import Filters from '../../components/Filters';
 import MockedProductCard from '../../components/MockedProductCard';
 import ProductCard from '../../components/ProductCard';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { useAppSelector } from '../../hooks/useAppSelector';
-import { fetchProducts } from './productSlice';
 import Box from '@mui/material/Box';
 import React, { ChangeEvent, FC, useEffect, useState } from 'react';
 

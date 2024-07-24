@@ -1,8 +1,8 @@
+import { clearCart } from '../../app/cart/cartSlice';
+import { createOrder } from '../../app/order/orderSlice';
 import { RootState } from '../../app/store';
 import { cartFormFields } from '../../configs/cartFormConfing';
 import { cartSchema } from '../../configs/cartFormSchema';
-import { clearCart } from '../../features/cart/cartSlice';
-import { createOrder } from '../../features/order/orderSlice';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { TCartFormData } from '../../types';
 import CartFormField from '../CartFormField';

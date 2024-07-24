@@ -1,7 +1,7 @@
-import authReducer from '../features/auth/authSlice';
-import cartReducer from '../features/cart/cartSlice';
-import categoriesReducer from '../features/categories/categoriesSlice';
-import productReducer from '../features/products/productSlice';
+import authReducer from './auth/authSlice';
+import cartReducer from './cart/cartSlice';
+import categoriesReducer from './categories/categoriesSlice';
+import productReducer from './products/productSlice';
 import { configureStore } from '@reduxjs/toolkit';
 
 export const store = configureStore({

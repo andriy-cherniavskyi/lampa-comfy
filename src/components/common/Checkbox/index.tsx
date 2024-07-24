@@ -1,4 +1,4 @@
-import { toggleCategory } from '../../../features/products/productSlice';
+import { toggleCategory } from '../../../app/products/productSlice';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
 import { Checkbox as MuiCheckbox } from '@mui/material';
 import React, { ChangeEvent, FC, memo, useCallback, useState } from 'react';

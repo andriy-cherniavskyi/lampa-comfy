@@ -1,8 +1,4 @@
-import {
-  decreaseItemQuantity,
-  increaseItemQuantity,
-  removeItemFromCart,
-} from '../../../features/cart/cartSlice';
+import { decreaseItemQuantity, increaseItemQuantity, removeItemFromCart } from '../../../app/cart/cartSlice';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';

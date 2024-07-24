@@ -1,5 +1,5 @@
-import { fetchProductsCategories } from '../../features/categories/categoriesSlice';
-import { fetchProductsByCategory } from '../../features/products/productSlice';
+import { fetchProductsCategories } from '../../app/categories/categoriesSlice';
+import { fetchProductsByCategory } from '../../app/products/productSlice';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import Checkbox from '../common/Checkbox';

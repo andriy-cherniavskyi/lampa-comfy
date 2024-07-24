@@ -1,10 +1,10 @@
 import Header from './components/common/Header';
-import CartLayout from './components/layouts/CartLayout';
-import MainLayout from './components/layouts/MainLayout';
-import Login from './features/auth/Login';
-import Signup from './features/auth/Signup';
-import Cart from './features/cart/Cart';
-import Products from './features/products/Products';
+import CartLayout from './layouts/CartLayout';
+import MainLayout from './layouts/MainLayout';
+import Cart from './views/Cart/Cart';
+import Login from './views/Login';
+import Products from './views/Products/Products';
+import Signup from './views/Signup';
 import { enableMapSet } from 'immer';
 import { SnackbarProvider } from 'notistack';
 import React from 'react';
